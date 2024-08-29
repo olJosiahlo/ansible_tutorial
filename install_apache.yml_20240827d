@@ -1,0 +1,13 @@
+---CopyD
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install appache and php package
+    package: #uses whatever package manager the server uses
+      name:
+        - "{{apache_package}}" #Variable "" is for string
+        - "{{php_package}}" #Variable "" is for string
+      state: latest
+      update_cache: yes
